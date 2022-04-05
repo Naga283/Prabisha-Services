@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "263100375419",
+    "project_id": "prabishaservices",
+    "storage_bucket": "prabishaservices.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:263100375419:android:b738f108e9db927acd1dde",
+        "android_client_info": {
+          "package_name": "com.prabisha.prabishaservices"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "263100375419-rccfb01dcp0pjoa8eide063etfhm7f9c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDiviD5EVYe0t09KhBNj7c21meUNoAgWCg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "263100375419-rccfb01dcp0pjoa8eide063etfhm7f9c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
