@@ -1,40 +1,32 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
-import 'package:prabishaservices/Authentication/authentication.dart';
-import 'package:prabishaservices/EmailAuthenticate/authentication.dart';
-class ForgotPass extends StatefulWidget {
-  const ForgotPass({ Key? key }) : super(key: key);
+
+import 'authentication.dart';
+class ForPas extends StatefulWidget {
+  const ForPas({ Key? key }) : super(key: key);
 
   @override
-  State<ForgotPass> createState() => _ForgotPassState();
+  State<ForPas> createState() => _ForPasState();
 }
 
-class _ForgotPassState extends State<ForgotPass> {
+class _ForPasState extends State<ForPas> {
+  final _formKey = GlobalKey<FormState>();
+  String? forgotMail;
   @override
   Widget build(BuildContext context) {
-    final _formKey = GlobalKey<FormState>();
-     String? forgotMail;
-    // TextEditingController forgPas  = TextEditingController();
     return Scaffold(
-      body:SafeArea(
-        child: Column(
-          children: [
-            Image.asset("assests/images/prabisha.png"),
-            Container(
-              margin: EdgeInsets.symmetric(horizontal: 10),
-              child: Form(
-               key: _formKey,
-                child: Column(
-                  children: [
-                  
-                    TextFormField(
-                     
-                       decoration: InputDecoration(
+      body: SafeArea(child: Form(
+        key: _formKey,
+        child: 
+      Column(
+        children: [
+          Image.asset("assests/images/prabisha.png"),
+          TextFormField(
+             decoration: InputDecoration(
                     prefixIcon: Icon(Icons.email_outlined),
                     labelText: 'Email ',
                     fillColor: Colors.grey[350],
                     filled: true,
+                    // ignore: prefer_const_constructors
                     border: OutlineInputBorder(
                       
                       borderSide: BorderSide.none,
@@ -44,7 +36,7 @@ class _ForgotPassState extends State<ForgotPass> {
                       ),
                     ),
               ),
-              validator: (value) {
+     validator: (value) {
                     if (value!.isEmpty) {
                       return 'Please enter some text';
                     }
@@ -53,12 +45,8 @@ class _ForgotPassState extends State<ForgotPass> {
               onSaved: (val) {
                     forgotMail = val;
               },
-                    ),
-                  ],
-                ),
-              ),
-            ),
-           SizedBox(height: 15),
+          ),
+          SizedBox(height: 15),
 
           Container(
             margin: EdgeInsets.symmetric(horizontal: 10),
@@ -101,9 +89,10 @@ class _ForgotPassState extends State<ForgotPass> {
               ),
             ),
           ),
-          ],
-        ),
-      )
+        ],
+      )),
+        
+      ),
     );
   }
 }

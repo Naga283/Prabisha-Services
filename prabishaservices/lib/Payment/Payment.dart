@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -8,25 +9,48 @@ import 'package:fluttertoast/fluttertoast.dart';
 
 
 class Payment extends StatefulWidget {
+  final double pay;
+  
+  Payment(this.pay);
   @override
   _PaymentState createState() => _PaymentState();
+  
 }
 
 class _PaymentState extends State<Payment> {
-  static const platform = const MethodChannel("razorpay_flutter");
+  //static const platform = const MethodChannel("razorpay_flutter");
 
   late Razorpay _razorpay;
+  String? em = FirebaseAuth.instance.currentUser!.email;
+  String? phn = FirebaseAuth.instance.currentUser!.phoneNumber;
 
   @override
   Widget build(BuildContext context) {
+    double tot =4.0;
     return 
        Scaffold(
        
-        body: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-          ElevatedButton(onPressed: openCheckout, child: Text('Payment'))
-        ]),
+        body: SafeArea(
+          child: Column(
+            children: [
+                  Image.asset("assests/images/prabisha.png",),
+                  Divider(),
+                  SizedBox(height: 20,),
+                 // Text(widget.pay.toString()),
+              Text("Conform Your Payment",style: TextStyle(fontSize:26,fontWeight: FontWeight.bold),),
+              SizedBox(height: 20,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Text("Pay Rupees",style: TextStyle(fontSize: 20),),
+              Text(((widget.pay*4)*75.95).toInt().toString(),style: TextStyle(fontSize: 20),),
+                ],
+              ),
+              SizedBox(height: 20,),
+              ElevatedButton(onPressed: openCheckout, child: const Text('Payment')),
+            ],
+          ),
+        ),
     
     );
   }
@@ -46,15 +70,15 @@ class _PaymentState extends State<Payment> {
     _razorpay.clear();
   }
 
-  void openCheckout() async {
+   openCheckout() async {
     var options = {
-      'key': 'rzp_live_ILgsfZCZoFIKMb',
-      'amount': 100,
-      'name': 'Acme Corp.',
-      'description': 'Fine T-Shirt',
-      'retry': {'enabled': true, 'max_count': 1},
+      'key': 'rzp_live_ZoVOmZmp4nsh96',
+      'amount': num.parse((widget.pay*4*76).toString())*100,
+      'name': 'Prabisha Consulting',
+      'description': '',
+      'retry': {'enabled': true, 'max_count': 3},
       'send_sms_hash': true,
-      'prefill': {'contact': '8888888888', 'email': 'test@razorpay.com'},
+      'prefill': {'contact': phn, 'email': em},
       'external': {
         'wallets': ['paytm']
       }

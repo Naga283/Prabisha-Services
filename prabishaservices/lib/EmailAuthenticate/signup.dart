@@ -1,5 +1,6 @@
 import 'package:email_auth/email_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:prabishaservices/Authentication/authentication.dart';
 import 'package:prabishaservices/EmailAuthenticate/otpScreen.dart';
 
 import 'authentication.dart';
@@ -42,7 +43,7 @@ class _SignupState extends State<Signup> {
                         style: TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 20)),
                     GestureDetector(
-                      onTap: () {
+                      onTap: () { 
                         Navigator.pop(context);
                       },
                       child: Text('LogIn Here!',
@@ -225,7 +226,6 @@ class _SignupFormState extends State<SignupForm> {
           space,
           // name
           
-
           Row(
             children: <Widget>[
               Checkbox(
@@ -255,7 +255,7 @@ class _SignupFormState extends State<SignupForm> {
                 if (_formKey.currentState!.validate()) {
                  _formKey.currentState!.save();
                   sendOtp();
-                   Navigator.pushReplacement(context,
+                 Navigator.pushReplacement(context,
                            MaterialPageRoute(builder: (context) => OTPAuth(email: email.toString(), pass: password.toString(),)));
                   
                   // AuthenticationHelper()

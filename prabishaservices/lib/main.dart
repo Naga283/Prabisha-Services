@@ -8,6 +8,7 @@ import 'package:prabishaservices/Payment/Payment.dart';
 import 'package:prabishaservices/Screens/homepage.dart';
 import 'package:prabishaservices/Screens/itSolutions.dart';
 import 'package:prabishaservices/Screens/topHeader.dart';
+import 'package:prabishaservices/bottomNavBar/bottomNav.dart';
 import 'package:prabishaservices/select%20Location/select_location.dart';
 import 'package:prabishaservices/trailCart/st.dart';
 import 'package:prabishaservices/whatsappchat/whatsAppChat.dart';
@@ -15,6 +16,7 @@ import 'package:provider/provider.dart';
 
 import 'Authentication/authentication.dart';
 import 'Authentication/user.dart';
+import 'Screens/onboardingScree/onboardingScreen.dart';
 Future<void> main(List<String> args) async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -30,9 +32,10 @@ class MyApp extends StatelessWidget {
       value: Authentication().user,
       initialData: null,
       child: MaterialApp(
+        theme: ThemeData(fontFamily: "Worksan"),
         debugShowCheckedModeBanner: false,
       //  home:Practice(title: 'Order Place',)
-       home: InitialiserWidget(),
+       home: OnBoardingScreens(),
       ),
     );
   }

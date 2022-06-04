@@ -2,9 +2,12 @@
 
 import 'package:flutter/material.dart';
 import 'package:prabishaservices/EmailAuthenticate/forgotPassScreen.dart';
+import 'package:prabishaservices/EmailAuthenticate/practiSignUp.dart';
 import 'package:prabishaservices/EmailAuthenticate/signup.dart';
+import 'package:prabishaservices/EmailAuthenticate/signupAno.dart';
 import 'package:prabishaservices/Screens/homepage.dart';
 import 'authentication.dart';
+import 'forPass.dart';
 
 
 
@@ -58,7 +61,7 @@ class Login extends StatelessWidget {
                   onTap: () {
                     // Navigator.pushNamed(context, '/signup');
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Signup()));
+                        MaterialPageRoute(builder: (context) => Prac()));
                   },
                   child: Text('Create a new Account',
                       style: TextStyle(fontSize: 20, color: Color(0xFF09009B))),
@@ -171,7 +174,7 @@ class _LoginFormState extends State<LoginForm> {
           Text("Remember me",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18),),
           GestureDetector(
             onTap: (){
-              Navigator.of(context).push(MaterialPageRoute(builder: (context)=>ForgotPass()));
+              Navigator.of(context).push(MaterialPageRoute(builder: (context)=>ForPas()));
             },
             child: Text("Forgot Password",style: TextStyle(fontWeight: FontWeight.bold,color: Color(0xFF09009B),fontSize: 18),))
         ],
